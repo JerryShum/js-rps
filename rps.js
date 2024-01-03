@@ -20,7 +20,11 @@
 
 //! Selecting elements
 const buttons = document.querySelectorAll('button')
-console.log(buttons);
+const roundCounterElement = document.querySelector('.round-counter')
+const playerScoreElement = document.querySelector('.player-score')
+const computerScoreElement = document.querySelector('.computer-score')
+
+
 
 
 buttons.forEach(buttons => {
@@ -30,25 +34,38 @@ buttons.forEach(buttons => {
 
 //! Logic:
 
+let roundCount = 0;
+let playerScore = 0;
+let computerScore = 0;
+
+
+
 function playRound() {
     let playerSelection = this.value.toLowerCase();
     let computerSelection = getComputerChoice();
     console.log(playerSelection);
 
+    roundCount++;
+    roundCounterElement.textContent = 'Current Round: ' + roundCount
+
     if (playerSelection == 'rock' && computerSelection == 'scissors') {
         console.log("You win! Rock beats scissors");
+        incrementPlayer();
     }
     else if (playerSelection == 'paper' && computerSelection == 'rock') {
         console.log("You win! Paper beats rock");
+        incrementPlayer();
     }
     else if (playerSelection == 'scissors' && computerSelection == 'paper') {
         console.log("You win! Scissors beats paper");
+        incrementPlayer();
     }
     else if (playerSelection == computerSelection) {
         console.log("It's a tie!");
     }
     else {
         console.log("You lose! " + computerSelection + " beats " + playerSelection);
+        incrementComputer();
     }
 }
 
@@ -66,6 +83,16 @@ function getComputerChoice() {
             return 'scissors';
     }
 
+}
+
+function incrementPlayer() {
+    playerScore++;
+    playerScoreElement.textContent = 'Player Score: ' + playerScore;
+}
+
+function incrementComputer() {
+    computerScore++;
+    computerScoreElement.textContent = 'Computer Score: ' + computerScore;
 }
 
 

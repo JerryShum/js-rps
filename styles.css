@@ -1,5 +1,6 @@
 * {
     font-family: sans-serif;
+    font-size: 20px;
 }
 
 .container {
@@ -16,22 +17,49 @@
     text-align: center;
 }
 
-.button-container {
+/* Components: */
+
+.results {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 40px;
+
+    border: 3px solid black;
+    border-radius: 12px;
+}
+
+.scoreboard {
     display: flex;
     justify-content: center;
 }
 
+.scoreboard p {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .btn {
+    flex: 1;
+    box-sizing: border-box;
     padding: 100px;
     border: 2px solid red;
     border-radius: 12px;
-    margin: 10px;
+
 
     background-color: peachpuff;
     transition-duration: 0.3s;
 
     font-size: 30px;
 
+}
+
+.btn:not(:last-child) {
+    margin-right: 10px;
 }
 
 .btn:hover {
