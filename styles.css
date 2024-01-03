@@ -1,0 +1,41 @@
+* {
+    font-family: sans-serif;
+}
+
+.container {
+    background-color: bisque;
+    margin: 40px;
+    padding: 40px;
+
+    text-align: center;
+}
+
+.heading {
+    margin-top: 40px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    padding: 100px;
+    border: 2px solid red;
+    border-radius: 12px;
+    margin: 10px;
+
+    background-color: peachpuff;
+    transition-duration: 0.3s;
+
+    font-size: 30px;
+
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: blue;
+
+}
