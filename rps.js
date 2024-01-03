@@ -23,6 +23,7 @@ const buttons = document.querySelectorAll('button')
 const roundCounterElement = document.querySelector('.round-counter')
 const playerScoreElement = document.querySelector('.player-score')
 const computerScoreElement = document.querySelector('.computer-score')
+const resultsElement = document.querySelector('.results')
 
 
 
@@ -49,23 +50,36 @@ function playRound() {
     roundCounterElement.textContent = 'Current Round: ' + roundCount
 
     if (playerSelection == 'rock' && computerSelection == 'scissors') {
-        console.log("You win! Rock beats scissors");
+        resultsElement.textContent = "You win! Rock beats Scissors";
         incrementPlayer();
     }
     else if (playerSelection == 'paper' && computerSelection == 'rock') {
-        console.log("You win! Paper beats rock");
+
+        resultsElement.textContent = "You win! Paper beats Rock";
         incrementPlayer();
     }
     else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-        console.log("You win! Scissors beats paper");
+
+        resultsElement.textContent = "You win! Scissors beats Paper";
         incrementPlayer();
     }
     else if (playerSelection == computerSelection) {
-        console.log("It's a tie!");
+
+        resultsElement.textContent = "It's a tie!"
     }
     else {
-        console.log("You lose! " + computerSelection + " beats " + playerSelection);
+
+        resultsElement.textContent = "You lose! " + computerSelection + " beats " + playerSelection;
         incrementComputer();
+    }
+
+    if (playerScore == 5) {
+        resultsElement.textContent = "You won!"
+        reset();
+
+    } else if (computerScore == 5) {
+        resultsElement.textContent = "You Lose!"
+        reset();
     }
 }
 
@@ -95,6 +109,12 @@ function incrementComputer() {
     computerScoreElement.textContent = 'Computer Score: ' + computerScore;
 }
 
+function reset() {
+    playerScore = 0;
+    computerScore = 0;
+    roundCount = 0;
+    // resultsElement.textContent = 'The game has not started yet! Please press a button to start the game!'
+}
 
 
 
